@@ -1,0 +1,31 @@
+.loader_logo_loader {
+  color: black;
+  font-style: italic;
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo_header_loader {
+  margin-top: 30px;
+  margin-left: 10px;
+}
+ 
+.logo_header_loader span {
+  color: red;
+}
+
+.logo_octagon {
+width: 6%;
+margin-right: 10px;
+animation: rotate infinite 2s ease;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(90deg); }
+  50% { transform: rotate(180deg); }
+  75% { transform: rotate(270deg); }
+  100% { transform: rotate(360deg); }
+}
