@@ -8,12 +8,12 @@ const apolloServer = require('../graphQL');
 
 const app = express();
 apolloServer.applyMiddleware({ app });
-const port = 3000;
+const port = 3001;
 
+app.use(cors());
 app.use(logger(':method :url :status :res[content-length] - :response-time ms'));
 app.use(express.json());
 app.use(router);
-app.use(cors());
 
 models.sequelize.sync()
   .then(() => {

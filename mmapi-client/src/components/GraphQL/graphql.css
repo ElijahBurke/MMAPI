@@ -1,0 +1,82 @@
+.container_graphql {
+  display: flex;
+  flex-direction: column;
+  min-height: 85vh;
+  align-items: center;
+}
+.container_graphql > * {
+  margin-top: 3%;
+}
+.graphql_info {
+  text-align: center;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+}
+.graphql_info_title {
+  font-size: 24px;
+}
+.graphql_info_slidedown {
+}
+.graphql_playground {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  height: 50vh;
+}
+.playground_query {
+  height: 100%;
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.3);
+}
+.playground_query button {
+  color: #292835;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  background: white;
+  border: none;
+}
+
+.playground_response {
+  height: 100%;
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+.playground_response_container {
+  width: 80%;
+  height: 90%;
+  overflow: scroll;
+}
+.playground_response_container::-webkit-scrollbar {
+  display: none;
+}
+
+.schema_active_buttons {
+  display: flex; 
+  width: 60%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.queries_button {
+  color: #292835;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.queries_button.active {
+  background: #292835;
+  color: white;
+}

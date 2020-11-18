@@ -1,0 +1,12 @@
+.data_item {
+  margin-bottom: 20px;
+}
+
+.data_item_border {
+  border: black 1px solid;
+  text-align: center;
+  padding: 12px 35px;
+  background: #292835;
+  font-size: 14px;
+}
+

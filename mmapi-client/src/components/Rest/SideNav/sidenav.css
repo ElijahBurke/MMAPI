@@ -1,0 +1,35 @@
+.rest_sidenav {
+  background: #626164;
+  width: 100%;
+  height: 100%;
+  box-shadow: 3px 0px 5px 0px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sidenav_container {
+  width: 90%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.sidenav_item {
+  color: white;
+}
+
+.sidenav_item.header {
+  font-size: 24px;
+}
+.sidenav_item.main {
+  font-size: 20px;
+  margin-top: 10%;
+}
+.sidenav_item.sub {
+  font-size: 16px;
+}
+
+.active {
+  color: #292835;
+}

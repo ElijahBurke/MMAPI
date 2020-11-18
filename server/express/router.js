@@ -12,6 +12,6 @@ router.get('/divisions/:id', getDivision);
 router.get('/events', getEvents);
 router.get('/events/:id', getEventsById);
 router.get('/fighters', getFighters);
-router.get('/fighter/:id', getFighter);
+router.get('/fighters/:id', getFighter);
 
 module.exports = router;

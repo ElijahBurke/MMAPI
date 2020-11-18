@@ -1,0 +1,8 @@
+
+.rest_main {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  color: #292835;
+}

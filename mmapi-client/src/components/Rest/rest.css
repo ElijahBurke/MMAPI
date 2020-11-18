@@ -1,0 +1,21 @@
+.rest_container {
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+}
+.rest_container_sidenav {
+  width: 20vw;
+  z-index: 1;
+}
+.rest_container_main {
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  background: white;
+  height: 90vh;
+  overflow: scroll;
+}
+
+.rest_main > * {
+  margin: 10px 0px;
+}
