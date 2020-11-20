@@ -2,14 +2,22 @@
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
-const password = require('../password');
+// const password = require('../password');
+require('dotenv').config({ path: path.join(__dirname, '../../.env') });
+
+const currentDb = (process.env.NODE_ENV === 'test'
+  ? process.env.DATABASE_NAME_TEST
+  : process.env.DATABASE_NAME);
+  console.log(currentDb)
 
 const basename = path.basename(__filename);
 const db = {};
 
-const sequelize = new Sequelize('mmapi', 'postgres', password, {
+const sequelize = new Sequelize('MMAPI_TEST', process.env.DATABASE_USER,
+  process.env.DATABASE_PASSWORD, {
   host: 'localhost',
   dialect: 'postgres',
+  logging: false,
   pool: {
     max: 5,
     min: 0,
