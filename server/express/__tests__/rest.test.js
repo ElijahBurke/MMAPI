@@ -1,55 +1,20 @@
-// const express = require('express');
-// const request = require('supertest');
-// const routes = require('../router');
+const supertest = require('supertest');
+const app = require('../server');
 
-// const app = express();
-// app.use('/fighters', routes);
+const mocks = require('./mocks.json');
 
-// jest.mock('../models/Fight.js', () => [
-//   {
-//     winner: 'red',
-//     method: 'fighting',
-//     details: 'details',
-//     rounds: 3,
-//     round_end_time: 'the end',
-//     fotn: 'true',
-//     n_rounds: 'three',
-//   },
-//   {
-//     winner: 'blue',
-//     method: 'screaming',
-//     details: 'details',
-//     rounds: 5,
-//     round_end_time: 'the end',
-//     fotn: 'true',
-//     n_rounds: 'three',
-//   },
-// ]);
+const request = supertest(app);
 
 describe('testing REST routes', () => {
-  // test('Gets the figters', async () => {
-  //   const { body } = await request(app).get('/fighters');
-  //   expect(body).toEqual([
-  //     {
-  //       winner: 'red',
-  //       method: 'fighting',
-  //       details: 'details',
-  //       rounds: 3,
-  //       round_end_time: 'the end',
-  //       fotn: 'true',
-  //       n_rounds: 'three',
-  //     },
-  //     {
-  //       winner: 'blue',
-  //       method: 'screaming',
-  //       details: 'details',
-  //       rounds: 5,
-  //       round_end_time: 'the end',
-  //       fotn: 'true',
-  //       n_rounds: 'three',
-  //     },
-  //   ]);
-  // });
+  beforeAll(() => {
+    jest.mock('../models', () => mocks);
+  });
+  test('get fights', async () => {
+    const response = await request.get('/fights');
+    console.log((response.statusCode));
+    expect(Array.isArray(response.body)).toBeTruthy();
+    expect(response.statusCode).toBe(200);
+  });
 
   test('Coolest test', () => {
     expect(1).toBe(1);
