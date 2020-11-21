@@ -45,11 +45,10 @@ describe('Models are associated correctly', () => {
     testFight = fightOne.toJSON();
     testEvent = eventOne.toJSON();
     testDivision = divisionOne.toJSON();
-
   });
 
   test('Coolest test', () => {
-    expect(1).toBe(1)
+    expect(1).toBe(1);
   });
 
   test('fight has 2 fighters', () => {
@@ -62,7 +61,7 @@ describe('Models are associated correctly', () => {
     expect(testFight.fighters[1].id).toBe(2);
   });
 
-  test('event contains correct fight', () => { 
+  test('event contains correct fight', () => {
     expect(testEvent.fights).toBeDefined();
     expect(testEvent.fights[0].id).toBe(1);
   });
@@ -74,7 +73,7 @@ describe('Models are associated correctly', () => {
 
   test('division contains correct fighters', () => {
     expect(testDivision.fighters.length).toBe(2);
-  })
+  });
 
   afterAll(async () => {
     await db.sequelize.drop();
