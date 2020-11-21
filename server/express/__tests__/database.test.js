@@ -33,23 +33,46 @@ describe('Models are associated correctly', () => {
         as: 'fighters',
       }],
     });
+    // try {
+    //   await fightOne.addFighter(2);
+    //   testFight = await fightOne.addFighter(1);
+    //   testEvent = await eventOne.toJSON();
+    //   testDivision = await divisionOne.toJSON();
+    // } catch (err) {
+    //   console.log({ err });
+    // }
 
-    fightOne.addFighter(1);
-    fightOne.addFighter(2);
-    eventOne.addFight(1);
-    divisionOne.addFight(1);
-    divisionOne.addFight(2);
-    divisionOne.addFighter(1);
-    divisionOne.addFighter(2);
+    await fightOne.addFighter(1);
+    await fightOne.addFighter(2);
+    await eventOne.addFight(1);
+    await divisionOne.addFight(1);
+    await divisionOne.addFight(2);
+    await divisionOne.addFighter(1);
+    await divisionOne.addFighter(2);
 
-    testFight = fightOne.toJSON();
-    testEvent = eventOne.toJSON();
-    testDivision = divisionOne.toJSON();
+    testFight = await db.fights.findOne({
+      where: { id: 1 },
+      include: [db.fighters, db.events, db.divisions],
+    });
+    testEvent = await db.events.findOne({
+      where: { id: 1 },
+      include: [db.fights, {
+        model: db.fighters,
+        as: 'potn',
+      }],
+    });
 
+    testDivision = await db.divisions.findOne({
+      where: { id: 1 },
+      include: [{
+        model: db.fighters,
+        as: 'fighters',
+      }],
+    });
   });
 
   test('Coolest test', () => {
-    expect(1).toBe(1)
+    expect(1).toBe(1);
   });
 
   test('fight has 2 fighters', () => {
@@ -62,7 +85,7 @@ describe('Models are associated correctly', () => {
     expect(testFight.fighters[1].id).toBe(2);
   });
 
-  test('event contains correct fight', () => { 
+  test('event contains correct fight', () => {
     expect(testEvent.fights).toBeDefined();
     expect(testEvent.fights[0].id).toBe(1);
   });
@@ -74,7 +97,7 @@ describe('Models are associated correctly', () => {
 
   test('division contains correct fighters', () => {
     expect(testDivision.fighters.length).toBe(2);
-  })
+  });
 
   afterAll(async () => {
     await db.sequelize.drop();
