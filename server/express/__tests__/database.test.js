@@ -37,7 +37,6 @@ describe('Models are associated correctly', () => {
     fightOne.addFighter(1);
     fightOne.addFighter(2);
     eventOne.addFight(1);
-    // eventOne.addPotn(1);
     divisionOne.addFight(1);
     divisionOne.addFight(2);
     divisionOne.addFighter(1);
@@ -46,7 +45,6 @@ describe('Models are associated correctly', () => {
     testFight = fightOne.toJSON();
     testEvent = eventOne.toJSON();
     testDivision = divisionOne.toJSON();
-    // console.log(testEvent);
 
   });
 
@@ -78,8 +76,8 @@ describe('Models are associated correctly', () => {
     expect(testDivision.fighters.length).toBe(2);
   })
 
-  // afterAll(async () => {
-  //   await db.sequelize.drop();
-  //   await db.sequelize.close();
-  // });
-})
+  afterAll(async () => {
+    await db.sequelize.drop();
+    await db.sequelize.close();
+  });
+});
