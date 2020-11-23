@@ -40,7 +40,7 @@ const getFighter = async (req, res) => {
     }
   } catch (err) {
     res.status(500);
-    res.send('Something went wrong');
+    res.send('Error: Something went wrong');
     console.error(err);
   }
 };
