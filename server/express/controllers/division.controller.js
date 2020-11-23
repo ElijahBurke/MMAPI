@@ -7,7 +7,7 @@ const getDivisions = async (req, res) => {
       res.status(200);
       res.send(result);
     } else {
-      res.status(404);
+      res.status(4);
       res.send('Error: data not found');
     }
   } catch (err) {
