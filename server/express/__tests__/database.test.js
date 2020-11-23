@@ -1,5 +1,7 @@
+const request = require('supertest');
 const db = require('../models');
 const mocks = require('../mocks');
+const app = require('../server');
 
 let testFight;
 let testEvent;
@@ -33,14 +35,6 @@ describe('Models are associated correctly', () => {
         as: 'fighters',
       }],
     });
-    // try {
-    //   await fightOne.addFighter(2);
-    //   testFight = await fightOne.addFighter(1);
-    //   testEvent = await eventOne.toJSON();
-    //   testDivision = await divisionOne.toJSON();
-    // } catch (err) {
-    //   console.log({ err });
-    // }
 
     await fightOne.addFighter(1);
     await fightOne.addFighter(2);
@@ -71,10 +65,6 @@ describe('Models are associated correctly', () => {
     });
   });
 
-  test('Coolest test', () => {
-    expect(1).toBe(1);
-  });
-
   test('fight has 2 fighters', () => {
     expect(testFight.fighters).toBeDefined();
     expect(testFight.fighters.length).toBe(2);
@@ -97,6 +87,41 @@ describe('Models are associated correctly', () => {
 
   test('division contains correct fighters', () => {
     expect(testDivision.fighters.length).toBe(2);
+  });
+
+  // calling the test database
+  describe('testing REST routes', () => {
+    test('GET /fights - success', () => {
+      expect.assertions(3);
+      return request(app)
+        .get('/fights')
+        .expect(200)
+        .then((response) => {
+          expect(Array.isArray(response.body)).toBeTruthy();
+          expect(response.statusCode).toBe(200);
+          expect(response.body.length).toBe(2);
+        });
+    });
+
+    test('GET /fights/:id - success', () => {
+      expect.assertions(1);
+      return request(app)
+        .get('/fights/1')
+        .expect(200)
+        .then((response) => {
+          expect(response.body.id).toBe(1);
+        });
+    });
+
+    test('GET /fights/:id - failure', () => {
+      expect.assertions(2);
+      return request(app)
+        .get('/fights/3')
+        .then((response) => {
+          expect(response.status).toBe(404);
+          expect(response.error.text).toBe('Error: data not found');
+        });
+    });
   });
 
   afterAll(async () => {
