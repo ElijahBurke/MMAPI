@@ -3,9 +3,16 @@ const models = require('../models');
 const getEvents = async (req, res) => {
   try {
     const result = await models.events.findAll({});
-    res.status = 200;
-    res.send(result);
+    if (result) {
+      res.status(200);
+      res.send(result);
+    } else {
+      res.status(404);
+      res.send('Error: data not found');
+    }
   } catch (err) {
+    res.status(500);
+    res.send('Something went wrong');
     console.error(err);
   }
 };
@@ -20,9 +27,16 @@ const getEventsById = async (req, res) => {
         as: 'potn',
       }],
     });
-    res.status = 200;
-    res.send(result);
+    if (result) {
+      res.status(200);
+      res.send(result);
+    } else {
+      res.status(404);
+      res.send('Error: data not found');
+    }
   } catch (err) {
+    res.status(500);
+    res.send('Something went wrong');
     console.error(err);
   }
 };
