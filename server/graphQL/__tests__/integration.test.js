@@ -32,6 +32,34 @@ query fights {
 }
 `;
 
+const GET_EVENTS = gql`
+query events {
+  events {
+    id
+    name
+    location
+    fights {
+      id
+      winner
+    }
+  }
+}
+`;
+
+const GET_EVENT = gql`
+query events {
+  events(id: 1) {
+    id
+    name
+    location
+    fights {
+      id
+      winner
+    }
+  }
+}
+`;
+
 describe('Queries', () => {
   const { query } = createTestClient(server);
   let result;
@@ -39,6 +67,7 @@ describe('Queries', () => {
   beforeAll(async () => {
     await db.sequelize.sync({ force: true });
     await db.fights.bulkCreate([mocks.fightOne, mocks.fightTwo]);
+    await db.events.create(mocks.event);
   });
 
   afterAll(async () => {
@@ -49,11 +78,19 @@ describe('Queries', () => {
   test('Gets all fights', async () => {
     result = await query({ query: GET_FIGHTS });
     expect(result.data).toMatchSnapshot();
-    expect(1).toBe(1);
   });
   test('Gets correct fight', async () => {
     result = await query({ query: GET_FIGHT });
     expect(result.data.fights[0].id).toBe(1);
-    // expect(1).toBe(1);
+    expect(result.data.fights[0]).toHaveProperty('winner', 'red');
+  });
+  test('Gets all events', async () => {
+    result = await query({ query: GET_EVENTS });
+    expect(result.data).toMatchSnapshot();
+  });
+  test('Gets correct event', async () => {
+    result = await query({ query: GET_EVENT });
+    expect(result.data.events[0].id).toBe(1);
+    expect(result.data.events[0]).toHaveProperty('location', 'Barcelona');
   });
 });

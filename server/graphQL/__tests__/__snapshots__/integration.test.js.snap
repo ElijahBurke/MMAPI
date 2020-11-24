@@ -1,5 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Queries Gets all events 1`] = `
+Object {
+  "events": Array [
+    Object {
+      "fights": Array [],
+      "id": 1,
+      "location": "Barcelona",
+      "name": "world championship",
+    },
+  ],
+}
+`;
+
 exports[`Queries Gets all fights 1`] = `
 Object {
   "fights": Array [
