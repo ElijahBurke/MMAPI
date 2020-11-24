@@ -16,9 +16,3 @@ app.use(express.json());
 app.use(router);
 
 module.exports = app;
-
-// models.sequelize.sync()
-//   .then(() => {
-//     app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));
-//   })
-//   .catch((err) => console.log(err));

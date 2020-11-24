@@ -9,22 +9,21 @@ const currentDb = (process.env.NODE_ENV === 'test'
   ? process.env.DATABASE_NAME_TEST
   : process.env.DATABASE_NAME);
 
-
 const basename = path.basename(__filename);
 const db = {};
 
 const sequelize = new Sequelize(currentDb, process.env.DATABASE_USER,
   process.env.DATABASE_PASSWORD, {
-  host: 'localhost',
-  dialect: 'postgres',
-  logging: false,
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000,
-  },
-});
+    host: 'localhost',
+    dialect: 'postgres',
+    logging: false,
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000,
+    },
+  });
 
 fs
   .readdirSync(__dirname)
