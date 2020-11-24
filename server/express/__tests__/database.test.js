@@ -90,7 +90,7 @@ describe('Models are associated correctly', () => {
   });
 
   // calling the test database
-  describe('testing REST routes', () => {
+  describe('INTEGRATION - controller with models', () => {
     test('GET /fights - success', () => {
       expect.assertions(3);
       return request(app)
