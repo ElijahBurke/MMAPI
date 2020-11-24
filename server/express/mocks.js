@@ -57,9 +57,8 @@ const fightOne = {
   r_td_landed_r1: 4,
   r_sub_att_r1: 3,
   r_reversal_r1: 3,
-  r_ctrl_r1: 'banana'
+  r_ctrl_r1: 'banana',
 };
-
 
 const fightTwo = {
   winner: 'blue',
