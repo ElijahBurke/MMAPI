@@ -24,7 +24,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: wename_test
+          POSTGRES_DB: MMAPI_TEST
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
