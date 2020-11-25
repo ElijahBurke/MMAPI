@@ -27,6 +27,12 @@ jobs:
           --health-timeout 5s
           --health-retries 5
 
+    env:
+      DATABASE_NAME: db_name
+      DATABASE_NAME_TEST: db_name
+      DATABASE_USER: user
+      DATABASE_PASSWORD: password
+
     steps:
       # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
@@ -45,15 +51,9 @@ jobs:
         # Environment variable used by the `client.js` script to create a new PostgreSQL client.
         env:
           # The hostname used to communicate with the PostgreSQL service container
-          POSTGRES_HOST: 127.0.0.1
+          POSTGRES_HOST: localhost
           # The default PostgreSQL port
           POSTGRES_PORT: 5432
-          DATABASE_NAME: db_name
-          DATABASE_NAME_TEST: db_name
-          DATABASE_USER: user
-          DATABASE_PASSWORD: password
       - name: Run Tests
         run: npm test
         working-directory: ./server
-        env:
-          CI_DB_URL: postgresql://postgres@localhost:5432/MMAPI_TEST
