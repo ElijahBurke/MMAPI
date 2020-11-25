@@ -12,9 +12,10 @@ const currentDb = (process.env.NODE_ENV === 'test'
 const basename = path.basename(__filename);
 const db = {};
 
-const sequelize = new Sequelize(currentDb, process.env.DATABASE_USER,
+const sequelize = new Sequelize(process.env.DATABASE_NAME_TEST, process.env.DATABASE_USER,
   process.env.DATABASE_PASSWORD, {
     host: 'localhost',
+    port: 5432,
     dialect: 'postgres',
     logging: false,
     pool: {
@@ -23,6 +24,15 @@ const sequelize = new Sequelize(currentDb, process.env.DATABASE_USER,
       acquire: 30000,
       idle: 10000,
     },
+  });
+
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch((err) => {
+    console.error('Unable to connect to the database:', err);
   });
 
 fs
