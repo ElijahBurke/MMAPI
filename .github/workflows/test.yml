@@ -12,19 +12,18 @@ on:
 
 jobs:
     runner-job:
-    # You must use a Linux environment when using service containers or container jobs
-    runs-on: ubuntu-latest
-
-    # Service containers to run with `runner-job`
-    services:
+      runs-on: ubuntu-latest
+      services:
       # Label used to access the service container
-      postgres:
+       postgres:
         # Docker Hub image
         image: postgres
         # Provide the password for postgres
         env:
           POSTGRES_PASSWORD: postgres
-        # Set health checks to wait until postgres has started
+          DATABASE_NAME: MMAPI
+          DATABASE_NAME_TEST: MMAPI_TEST        
+# Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -56,31 +55,30 @@ jobs:
           POSTGRES_PORT: 5432
           
     build:
+      name: build and test
       runs-on: ubuntu-latest
-
       strategy:
-      matrix:
-        node-version: [10.x, 12.x, 14.x]
-
+        matrix:
+         node-version: [10.x, 12.x, 14.x]
       steps:
-       - uses: actions/checkout@v2
-       - name: Use Node.js ${{ matrix.node-version }}
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
-       with:
-        node-version: ${{ matrix.node-version }}
-          
-    - name: npm INSTALL
-      working-directory: ./server
-      run: npm i
-  
-    - name: npm TEST
-      working-directory: ./server
-      run: npm test
+        with:
+          node-version: ${{ matrix.node-version }}
     
-    - name: npm CI
-      working-directory: ./server
-      run: npm ci
+      - name: npm INSTALL
+        working-directory: ./server
+        run: npm i
+  
+      - name: npm TEST
+        working-directory: ./server
+        run: npm test
 
-    - name: npm build
-      working-directory: ./server
-      run: npm run build --if-present
+      - name: npm CI
+        working-directory: ./server
+        run: npm ci
+
+      - name: npm build
+        working-directory: ./server
+        run: npm run build --if-present
