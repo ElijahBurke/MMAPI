@@ -17,14 +17,22 @@ jobs:
     strategy:
       matrix:
         node-version: [10.x, 12.x, 14.x]
-
+    services:
+      postgres:
+        image: postgres:10.8
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+        - 5432:5432  
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    
+          
     - name: npm INSTALL
       working-directory: ./server
       run: npm i
