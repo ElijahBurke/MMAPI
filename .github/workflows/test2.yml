@@ -46,3 +46,6 @@ jobs:
           POSTGRES_HOST: postgres
           # The default PostgreSQL port
           POSTGRES_PORT: 5432
+      - name: Run Tests
+        run: npm test
+        working-directory: ./server  
