@@ -17,8 +17,10 @@ jobs:
         image: postgres
         # Provide the password for postgres
         env:
-          POSTGRES_USER: malkeeszon
-          POSTGRES_DB: MMAPI_TEST
+          DATABASE_NAME: postgres
+          DATABASE_NAME_TEST: postgres
+          DATABASE_USER: postgres
+          DATABASE_PASSWORD: postgres
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
