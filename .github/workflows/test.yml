@@ -10,12 +10,11 @@ on:
     branches: [ main ]
 
 jobs:
-  test-host:
-  runs-on: ubuntu-latest:
+ 
  
   build:
-
-    runs-on: ubuntu-latest
+   test-host:
+  runs-on: ubuntu-latest
 
     strategy:
       matrix:
