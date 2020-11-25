@@ -62,7 +62,6 @@ beforeAll(async () => {
       as: 'fighters',
     }],
   });
-
 });
 
 afterAll(async () => {
@@ -71,7 +70,6 @@ afterAll(async () => {
 });
 
 describe('UNITS - models are associated correctly', () => {
-
   test('fight has 2 fighters', () => {
     expect(testFight.fighters).toBeDefined();
     expect(testFight.fighters.length).toBe(2);
@@ -95,7 +93,6 @@ describe('UNITS - models are associated correctly', () => {
   test('division contains correct fighters', () => {
     expect(testDivision.fighters.length).toBe(2);
   });
-
 });
 
 // calling the test database populated with mocked data during beforeAll hook
@@ -153,7 +150,7 @@ describe('INTEGRATION - controllers with models', () => {
         expect(response.body).toBeTruthy();
         expect(response.statusCode).toBe(200);
         expect(response.body.id).toBe(1);
-        expect(response.body).toHaveProperty('nickname', 'Banana')
+        expect(response.body).toHaveProperty('nickname', 'Banana');
       });
   });
 
@@ -169,13 +166,13 @@ describe('INTEGRATION - controllers with models', () => {
   test('GET /events', () => {
     expect.assertions(3);
     return request(app)
-    .get('/events')
-    .expect(200)
-    .then((response) => {
-      expect(Array.isArray(response.body)).toBeTruthy();
-      expect(response.statusCode).toBe(200);
-      expect(response.body.length).toBe(1);
-    });
+      .get('/events')
+      .expect(200)
+      .then((response) => {
+        expect(Array.isArray(response.body)).toBeTruthy();
+        expect(response.statusCode).toBe(200);
+        expect(response.body.length).toBe(1);
+      });
   });
   test('GET /events/:id - success', () => {
     expect.assertions(4);
@@ -202,13 +199,13 @@ describe('INTEGRATION - controllers with models', () => {
   test('GET /divisions', () => {
     expect.assertions(3);
     return request(app)
-    .get('/divisions')
-    .expect(200)
-    .then((response) => {
-      expect(Array.isArray(response.body)).toBeTruthy();
-      expect(response.statusCode).toBe(200);
-      expect(response.body.length).toBe(1);
-    });
+      .get('/divisions')
+      .expect(200)
+      .then((response) => {
+        expect(Array.isArray(response.body)).toBeTruthy();
+        expect(response.statusCode).toBe(200);
+        expect(response.body.length).toBe(1);
+      });
   });
   test('GET /divisions/:id - success', () => {
     expect.assertions(4);
@@ -232,7 +229,4 @@ describe('INTEGRATION - controllers with models', () => {
         expect(response.error.text).toBe('Error: data not found');
       });
   });
-
 });
-
-
