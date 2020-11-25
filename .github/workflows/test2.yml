@@ -18,7 +18,6 @@ jobs:
         # Provide the password for postgres
         env:
           POSTGRES_USER: malkeeszon
-          POSTGRES_PASSWORD: ''
           POSTGRES_DB: postgres
         # Set health checks to wait until postgres has started
         options: >-
