@@ -12,7 +12,7 @@ const currentDb = (process.env.NODE_ENV === 'test'
 const basename = path.basename(__filename);
 const db = {};
 
-const sequelize = new Sequelize(currentDb, process.env.DATABASE_USER,
+const sequelize = new Sequelize(process.env.DATABASE_NAME_TEST, process.env.DATABASE_USER,
   process.env.DATABASE_PASSWORD, {
     host: 'localhost',
     port: 5432,
