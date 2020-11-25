@@ -17,8 +17,9 @@ jobs:
         image: postgres
         # Provide the password for postgres
         env:
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: MMAPI_TEST
+          POSTGRES_PASSWORD: password
+          POSTGRES_USER: user
+          POSTGRES_DB: db_name
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -47,8 +48,12 @@ jobs:
           POSTGRES_HOST: 127.0.0.1
           # The default PostgreSQL port
           POSTGRES_PORT: 5432
+          DATABASE_NAME: db_name
+          DATABASE_NAME_TEST: db_name
+          DATABASE_USER: user
+          DATABASE_PASSWORD: password
       - name: Run Tests
         run: npm test
-        working-directory: ./server  
+        working-directory: ./server
         env:
           CI_DB_URL: postgresql://postgres@localhost:5432/MMAPI_TEST
