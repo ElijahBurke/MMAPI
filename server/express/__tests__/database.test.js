@@ -10,7 +10,7 @@ let testDivision;
 beforeAll(async () => {
   await db.sequelize.sync({ force: true });
   await db.events.create(mocks.event);
-  await db.divisions.create(mocks.division);
+  await db.divisions.create(mocks.divisionOne);
   await db.fights.bulkCreate([mocks.fightOne, mocks.fightTwo]);
   await db.fighters.bulkCreate([mocks.fighterOne, mocks.fighterTwo]);
 
