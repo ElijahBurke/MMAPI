@@ -1,13 +1,20 @@
-# MMAPI: One Stop For All Your UFC Data
+# `MMAPI: One Stop For All Your UFC Data`
 
-Use our API to retrieve stats from any UFC event you wish. Use traditional [REST queries](#REST API) to get general data or fully customise your requests using the [GraphQL playground](#GraphQl API).
+Use our API to retrieve stats from any UFC event you wish. Use traditional REST queries to get general data or fully customise your requests using the GraphQL playground.
 
+## Table of Contents
 
+- [**REST API**](#REST-API)
+  - [**Examples**](#Get-All-Fights)
+- [**GraphQl API**](#GraphQl-API)
+  - [**Examples **](#Get-All-Events)
+  - [**Type Definitions**](#Type-Definitions)
+  - [***Queries*](#Query:-Fights)
 
 ## REST API
 
 To access the data you can send a GET request as shown in the examples below (Here we are using 'fetch'). 
-The base endpoint is *http://localhost:3001/* 
+The base endpoint is **http://localhost:3001/**
 
 Possible endpoints are:
 
@@ -28,8 +35,9 @@ Possible endpoints are:
 8. `divisions/:id`
 
    
+### Examples
 
-#### Example: Get All Fights
+#### Get All Fights
 
 ```sh
 const fights = fetch('http://localhost:3001/fights')
@@ -37,11 +45,11 @@ const fights = fetch('http://localhost:3001/fights')
   .catch(err => console.log('Oops!'));
 ```
 
-WARNING! We have information for 5834 fights and for every fighter in the UFC, so expect a large payload.
+**WARNING!** We have information for 5834 fights and for every fighter in the UFC, so expect a large payload.
 
 
 
-#### Example: Get One Fight
+#### Get One Fight
 
 ```sh
 const fights = fetch('http://localhost:3001/fights/:id')
@@ -272,8 +280,9 @@ As with the REST API there are four different types to query (see the different 
 If no arguments are passed during the query, all the relevant data of that type will return. The provided [queries](#Queries) show the possible arguments that can be passed to narrow down your search.
 
 
+### Examples
 
-#### Example: Get All Events
+#### Get All Events
 
 This code shows how to query the graphql api  with a POST request. This query will return an array of all events with the properties id, name and location.
 
@@ -300,7 +309,7 @@ fetch('http://localhost:3001/graphql', {
 
 
 
-#### Example: Get One Fight
+#### Get One Fight
 
 This more complex request shows how you can do nested requests and only receive back the specific properties that you are searching for.
 
