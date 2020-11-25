@@ -8,9 +8,9 @@ jobs:
       DB_HOST: localhost
       # The default PostgreSQL port
       DB_PORT: 5432
-      DATABASE_USERNAME: postgres
-      # DATABASE_PASSWORD: postgres
-      DATABASE_NAME_TEST: MMAPI_TEST
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      DB_NAME_TEST: MMAPI_TEST
       NODE_ENV: test
     # Service containers to run with `container-job`
     services:
@@ -18,12 +18,13 @@ jobs:
       postgres:
         # Docker Hub image
         image: postgres
-
+        ports:
+          - 5432:5432
         # Provide the password for postgres
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: MMAPI_TEST
+          POSTGRES_DB: wename_test
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
