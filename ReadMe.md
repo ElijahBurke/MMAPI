@@ -5,11 +5,13 @@ Use our API to retrieve stats from any UFC event you wish. Use traditional REST 
 ## Table of Contents
 
 - [**REST API**](#REST-API)
-  - [**Examples**](#Get-All-Fights)
 - [**GraphQl API**](#GraphQl-API)
-  - [**Examples **](#Get-All-Events)
   - [**Type Definitions**](#Type-Definitions)
-  - [***Queries*](#Query:-Fights)
+  - [**Queries**](#Query:-Fights)
+- **Examples**
+  - [**REST Examples**](#REST-Examples)
+  - [**GRAPHQL Examples**](#GraphQL-Examples)
+
 
 ## REST API
 
@@ -34,10 +36,295 @@ Possible endpoints are:
 
 8. `divisions/:id`
 
-   
-### Examples
 
-#### Get All Fights
+## GraphQl API
+
+Query for customized data using the [GraphQl Playground](http://localhost:3000/graphql). 
+As with the REST API there are four different types to query (see the different [type definitions](#Type Definitions). 
+
+If no arguments are passed during the query, all the relevant data of that type will return. The provided [queries](#Queries) show the possible arguments that can be passed to narrow down your search.
+
+### Queries
+
+#### Query: Fights
+
+```
+  fights(
+    id: Int
+    fighter: String
+    winner: String
+    rounds: Int
+    method: String
+    details: String
+    fotn: Boolean
+    ): [Fight]!
+```
+
+
+
+#### Query: Fighters
+
+```
+    fighters(
+      id: Int
+      name: String
+      nickname: String
+      height: String
+      weight_lbs: String
+      reach: String
+      stance: String
+      dob: String
+      wins: String
+      losses: String
+      no_contest: String
+      record: String
+      is_champ: Boolean
+      slpm: Float
+      str_acc: String
+      sapm: Float
+      str_def: String
+      td_avg: Float
+      td_def: String
+      td_acc: String
+      sub_avg: Float
+      ): [Fighter]!
+```
+
+
+
+#### Query: Events
+
+```
+      events(
+        id: Int
+        name: String
+        location: String
+        date: Date
+        ): [Event]!
+```
+
+
+
+#### Query: Divisions
+
+```
+      divisions(
+        id: Int
+        division_name: String
+        min_weight: Int
+        max_weight: Int
+        ): [Division]!
+```
+
+
+
+---
+
+
+
+### Type Definitions
+
+#### Type: Fight
+
+```
+    id: Int!
+    event: Event!
+    division: Division
+    blue_fighter: Fighter!
+    red_fighter: Fighter!
+    winner: String!
+    method: String!
+    details: String!
+    rounds: Int!
+    round_end_time: String!
+    fotn: Boolean!
+    n_rounds: String!
+    r_kd: Int!
+    r_sig_str_attempts: Int!
+    r_sig_str_landed: Int!
+    r_total_str_attempts: Int!
+    r_total_str_landed: Int!
+    r_td_attempts: Int!
+    r_td_landed: Int!
+    r_sub_att: Int!
+    r_reversal: Int!
+    r_ctrl: String!
+    b_kd: Int!
+    b_sig_str_attempts: Int!
+    b_sig_str_landed: Int!
+    b_total_str_attempts: Int!
+    b_total_str_landed: Int!
+    b_td_attempts: Int!
+    b_td_landed: Int!
+    b_sub_att: Int!
+    b_reversal: Int!
+    b_ctrl: String!
+    r_kd_r1: Int!
+    r_sig_str_attempts_r1: Int!
+    r_sig_str_landed_r1: Int!
+    r_total_str_attempts_r1: Int!
+    r_total_str_landed_r1: Int!
+    r_td_attempts_r1: Int!
+    r_td_landed_r1: Int!
+    r_sub_att_r1: Int!
+    r_reversal_r1: Int!
+    r_ctrl_r1: String!
+    b_kd_r1: Int!
+    b_sig_str_attempts_r1: Int!
+    b_sig_str_landed_r1: Int!
+    b_total_str_attempts_r1: Int!
+    b_total_str_landed_r1: Int!
+    b_td_attempts_r1: Int!
+    b_td_landed_r1: Int!
+    b_sub_att_r1: Int!
+    b_reversal_r1: Int!
+    b_ctrl_r1: String!
+    r_kd_r2: Int
+    r_sig_str_attempts_r2: Int
+    r_sig_str_landed_r2: Int
+    r_total_str_attempts_r2: Int
+    r_total_str_landed_r2: Int
+    r_td_attempts_r2: Int
+    r_td_landed_r2: Int
+    r_sub_att_r2: Int
+    r_reversal_r2: Int
+    r_ctrl_r2: String
+    b_kd_r2: Int
+    b_sig_str_attempts_r2: Int
+    b_sig_str_landed_r2: Int
+    b_total_str_attempts_r2: Int
+    b_total_str_landed_r2: Int
+    b_td_attempts_r2: Int
+    b_td_landed_r2: Int
+    b_sub_att_r2: Int
+    b_reversal_r2: Int
+    b_ctrl_r2: String
+    r_kd_r3: Int
+    r_sig_str_attempts_r3: Int
+    r_sig_str_landed_r3: Int
+    r_total_str_attempts_r3: Int
+    r_total_str_landed_r3: Int
+    r_td_attempts_r3: Int
+    r_td_landed_r3: Int
+    r_sub_att_r3: Int
+    r_reversal_r3: Int
+    r_ctrl_r3: String
+    b_kd_r3: Int
+    b_sig_str_attempts_r3: Int
+    b_sig_str_landed_r3: Int
+    b_total_str_attempts_r3: Int
+    b_total_str_landed_r3: Int
+    b_td_attempts_r3: Int
+    b_td_landed_r3: Int
+    b_sub_att_r3: Int
+    b_reversal_r3: Int
+    b_ctrl_r3: String
+    r_kd_r4: Int
+    r_sig_str_attempts_r4: Int
+    r_sig_str_landed_r4: Int
+    r_total_str_attempts_r4: Int
+    r_total_str_landed_r4: Int
+    r_td_attempts_r4: Int
+    r_td_landed_r4: Int
+    r_sub_att_r4: Int
+    r_reversal_r4: Int
+    r_ctrl_r4: String
+    b_kd_r4: Int
+    b_sig_str_attempts_r4: Int
+    b_sig_str_landed_r4: Int
+    b_total_str_attempts_r4: Int
+    b_total_str_landed_r4: Int
+    b_td_attempts_r4: Int
+    b_td_landed_r4: Int
+    b_sub_att_r4: Int
+    b_reversal_r4: Int
+    b_ctrl_r4: String
+    r_kd_r5: Int
+    r_sig_str_attempts_r5: Int
+    r_sig_str_landed_r5: Int
+    r_total_str_attempts_r5: Int
+    r_total_str_landed_r5: Int
+    r_td_attempts_r5: Int
+    r_td_landed_r5: Int
+    r_sub_att_r5: Int
+    r_reversal_r5: Int
+    r_ctrl_r5: String
+    b_kd_r5: Int
+    b_sig_str_attempts_r5: Int
+    b_sig_str_landed_r5: Int
+    b_total_str_attempts_r5: Int
+    b_total_str_landed_r5: Int
+    b_td_attempts_r5: Int
+    b_td_landed_r5: Int
+    b_sub_att_r5: Int
+    b_reversal_r5: Int
+    b_ctrl_r5: String
+```
+
+
+
+#### Type: Fighter
+
+```
+    id: Int!
+    division: Division
+    potn: [Event]
+    name: String!
+    nickname: String
+    height: String
+    weight_lbs: String
+    reach: String
+    stance: String
+    dob: String
+    wins: String!
+    losses: String!
+    no_contest: String!
+    record: String!
+    is_champ: Boolean!
+    slpm: Float
+    str_acc: String
+    sapm: Float
+    str_def: String
+    td_avg: Float
+    td_def: String
+    td_acc: String
+    sub_avg: Float
+    fights: [Fight]
+```
+
+
+
+#### Type: Event
+
+```
+  id: Int!
+      name: String!
+      location: String!
+      date: Date!
+      fights: [Fight]!
+      potn: [Fighter]
+      fotn: [Fight]
+```
+
+
+
+#### Type: Division
+
+```
+    id: Int!
+    division_name: String!
+    min_weight: Int!
+    max_weight: Int!
+    fighters: [Fighter]!
+    fights: [Fight]!
+    champ: Fighter!
+```
+
+
+   
+## REST Examples
+
+### Get All Fights
 
 ```sh
 const fights = fetch('http://localhost:3001/fights')
@@ -49,7 +336,7 @@ const fights = fetch('http://localhost:3001/fights')
 
 
 
-#### Get One Fight
+### Get One Fight
 
 ```sh
 const fights = fetch('http://localhost:3001/fights/:id')
@@ -272,17 +559,10 @@ The response might look something like this:
 
 
 
-## GraphQl API
 
-Query for customized data using the [GraphQl Playground](http://localhost:3000/graphql). 
-As with the REST API there are four different types to query (see the different [type definitions](#Type Definitions). 
+## GraphQl Examples
 
-If no arguments are passed during the query, all the relevant data of that type will return. The provided [queries](#Queries) show the possible arguments that can be passed to narrow down your search.
-
-
-### Examples
-
-#### Get All Events
+### Get All Events
 
 This code shows how to query the graphql api  with a POST request. This query will return an array of all events with the properties id, name and location.
 
@@ -309,7 +589,7 @@ fetch('http://localhost:3001/graphql', {
 
 
 
-#### Get One Fight
+### Get One Fight
 
 This more complex request shows how you can do nested requests and only receive back the specific properties that you are searching for.
 
@@ -387,284 +667,6 @@ The result of the example above would be:
 
 
 ----
-
-
-
-#### Queries
-
-##### Query: Fights
-
-```
-  fights(
-    id: Int
-    fighter: String
-    winner: String
-    rounds: Int
-    method: String
-    details: String
-    fotn: Boolean
-    ): [Fight]!
-```
-
-
-
-##### Query: Fighters
-
-```
-    fighters(
-      id: Int
-      name: String
-      nickname: String
-      height: String
-      weight_lbs: String
-      reach: String
-      stance: String
-      dob: String
-      wins: String
-      losses: String
-      no_contest: String
-      record: String
-      is_champ: Boolean
-      slpm: Float
-      str_acc: String
-      sapm: Float
-      str_def: String
-      td_avg: Float
-      td_def: String
-      td_acc: String
-      sub_avg: Float
-      ): [Fighter]!
-```
-
-
-
-##### Query: Events
-
-```
-      events(
-        id: Int
-        name: String
-        location: String
-        date: Date
-        ): [Event]!
-```
-
-
-
-##### Query: Divisions
-
-```
-      divisions(
-        id: Int
-        division_name: String
-        min_weight: Int
-        max_weight: Int
-        ): [Division]!
-```
-
-
-
----
-
-
-
-#### Type Definitions
-
-##### Type: Fight
-
-```
-    id: Int!
-    event: Event!
-    division: Division
-    blue_fighter: Fighter!
-    red_fighter: Fighter!
-    winner: String!
-    method: String!
-    details: String!
-    rounds: Int!
-    round_end_time: String!
-    fotn: Boolean!
-    n_rounds: String!
-    r_kd: Int!
-    r_sig_str_attempts: Int!
-    r_sig_str_landed: Int!
-    r_total_str_attempts: Int!
-    r_total_str_landed: Int!
-    r_td_attempts: Int!
-    r_td_landed: Int!
-    r_sub_att: Int!
-    r_reversal: Int!
-    r_ctrl: String!
-    b_kd: Int!
-    b_sig_str_attempts: Int!
-    b_sig_str_landed: Int!
-    b_total_str_attempts: Int!
-    b_total_str_landed: Int!
-    b_td_attempts: Int!
-    b_td_landed: Int!
-    b_sub_att: Int!
-    b_reversal: Int!
-    b_ctrl: String!
-    r_kd_r1: Int!
-    r_sig_str_attempts_r1: Int!
-    r_sig_str_landed_r1: Int!
-    r_total_str_attempts_r1: Int!
-    r_total_str_landed_r1: Int!
-    r_td_attempts_r1: Int!
-    r_td_landed_r1: Int!
-    r_sub_att_r1: Int!
-    r_reversal_r1: Int!
-    r_ctrl_r1: String!
-    b_kd_r1: Int!
-    b_sig_str_attempts_r1: Int!
-    b_sig_str_landed_r1: Int!
-    b_total_str_attempts_r1: Int!
-    b_total_str_landed_r1: Int!
-    b_td_attempts_r1: Int!
-    b_td_landed_r1: Int!
-    b_sub_att_r1: Int!
-    b_reversal_r1: Int!
-    b_ctrl_r1: String!
-    r_kd_r2: Int
-    r_sig_str_attempts_r2: Int
-    r_sig_str_landed_r2: Int
-    r_total_str_attempts_r2: Int
-    r_total_str_landed_r2: Int
-    r_td_attempts_r2: Int
-    r_td_landed_r2: Int
-    r_sub_att_r2: Int
-    r_reversal_r2: Int
-    r_ctrl_r2: String
-    b_kd_r2: Int
-    b_sig_str_attempts_r2: Int
-    b_sig_str_landed_r2: Int
-    b_total_str_attempts_r2: Int
-    b_total_str_landed_r2: Int
-    b_td_attempts_r2: Int
-    b_td_landed_r2: Int
-    b_sub_att_r2: Int
-    b_reversal_r2: Int
-    b_ctrl_r2: String
-    r_kd_r3: Int
-    r_sig_str_attempts_r3: Int
-    r_sig_str_landed_r3: Int
-    r_total_str_attempts_r3: Int
-    r_total_str_landed_r3: Int
-    r_td_attempts_r3: Int
-    r_td_landed_r3: Int
-    r_sub_att_r3: Int
-    r_reversal_r3: Int
-    r_ctrl_r3: String
-    b_kd_r3: Int
-    b_sig_str_attempts_r3: Int
-    b_sig_str_landed_r3: Int
-    b_total_str_attempts_r3: Int
-    b_total_str_landed_r3: Int
-    b_td_attempts_r3: Int
-    b_td_landed_r3: Int
-    b_sub_att_r3: Int
-    b_reversal_r3: Int
-    b_ctrl_r3: String
-    r_kd_r4: Int
-    r_sig_str_attempts_r4: Int
-    r_sig_str_landed_r4: Int
-    r_total_str_attempts_r4: Int
-    r_total_str_landed_r4: Int
-    r_td_attempts_r4: Int
-    r_td_landed_r4: Int
-    r_sub_att_r4: Int
-    r_reversal_r4: Int
-    r_ctrl_r4: String
-    b_kd_r4: Int
-    b_sig_str_attempts_r4: Int
-    b_sig_str_landed_r4: Int
-    b_total_str_attempts_r4: Int
-    b_total_str_landed_r4: Int
-    b_td_attempts_r4: Int
-    b_td_landed_r4: Int
-    b_sub_att_r4: Int
-    b_reversal_r4: Int
-    b_ctrl_r4: String
-    r_kd_r5: Int
-    r_sig_str_attempts_r5: Int
-    r_sig_str_landed_r5: Int
-    r_total_str_attempts_r5: Int
-    r_total_str_landed_r5: Int
-    r_td_attempts_r5: Int
-    r_td_landed_r5: Int
-    r_sub_att_r5: Int
-    r_reversal_r5: Int
-    r_ctrl_r5: String
-    b_kd_r5: Int
-    b_sig_str_attempts_r5: Int
-    b_sig_str_landed_r5: Int
-    b_total_str_attempts_r5: Int
-    b_total_str_landed_r5: Int
-    b_td_attempts_r5: Int
-    b_td_landed_r5: Int
-    b_sub_att_r5: Int
-    b_reversal_r5: Int
-    b_ctrl_r5: String
-```
-
-
-
-##### Type: Fighter
-
-```
-    id: Int!
-    division: Division
-    potn: [Event]
-    name: String!
-    nickname: String
-    height: String
-    weight_lbs: String
-    reach: String
-    stance: String
-    dob: String
-    wins: String!
-    losses: String!
-    no_contest: String!
-    record: String!
-    is_champ: Boolean!
-    slpm: Float
-    str_acc: String
-    sapm: Float
-    str_def: String
-    td_avg: Float
-    td_def: String
-    td_acc: String
-    sub_avg: Float
-    fights: [Fight]
-```
-
-
-
-##### Type: Event
-
-```
-  id: Int!
-      name: String!
-      location: String!
-      date: Date!
-      fights: [Fight]!
-      potn: [Fighter]
-      fotn: [Fight]
-```
-
-
-
-##### Type: Division
-
-```
-    id: Int!
-    division_name: String!
-    min_weight: Int!
-    max_weight: Int!
-    fighters: [Fighter]!
-    fights: [Fight]!
-    champ: Fighter!
-```
 
 
 
