@@ -7,7 +7,7 @@ Use our API to retrieve stats from any UFC event you wish. Use traditional REST 
 - [**REST API**](#REST-API)
 - [**GraphQl API**](#GraphQl-API)
   - [**Type Definitions**](#Type-Definitions)
-  - [**Queries**](#Query:-Fights)
+  - [**Queries**](#Queries)
 - **Examples**
   - [**REST Examples**](#REST-Examples)
   - [**GRAPHQL Examples**](#GraphQL-Examples)
