@@ -1,7 +1,14 @@
-const division = {
+/* eslint-disable max-len */
+const divisionOne = {
   division_name: 'heavy weights',
   min_weight: 200,
   max_weight: 300,
+};
+
+const divisionTwo = {
+  division_name: 'light weights',
+  min_weight: 100,
+  max_weight: 200,
 };
 
 const event = {
@@ -169,5 +176,5 @@ const fighterTwo = {
 };
 
 module.exports = {
-  division, event, fighterOne, fighterTwo, fighterFightsOne, fighterFightsTwo, fightOne, fightTwo,
+  divisionOne, divisionTwo, event, fighterOne, fighterTwo, fighterFightsOne, fighterFightsTwo, fightOne, fightTwo,
 };
