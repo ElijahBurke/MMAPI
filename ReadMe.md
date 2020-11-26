@@ -1,4 +1,4 @@
-<img src="/Users/malkeeszon/Documents/Codeworks/legacy-project/Screenshot 2020-11-25 at 11.48.11.png" alt="Screenshot 2020-11-25 at 11.48.11" style="zoom:60%;" />
+<img src="./images/apiLogo.png" alt="Screenshot 2020-11-25 at 11.48.11" style="zoom:60%;" />
 
 ​															**MMAPI: One Stop For All Your UFC Data**
 
@@ -17,7 +17,7 @@ Use our API to retrieve stats from any UFC event you wish. Use traditional REST 
 
 ## REST API
 
-To access the data you can send a GET request as shown in the examples below (Here we are using 'fetch'). 
+To access the data you can send a GET request as shown in the examples below (Here we are using 'fetch').
 The base endpoint is **http://localhost:3001/**
 
 Possible endpoints are:
@@ -41,8 +41,8 @@ Possible endpoints are:
 
 ## GraphQl API
 
-Query for customized data using the [GraphQl Playground](http://localhost:3000/graphql). 
-As with the REST API there are four different types to query (see the different [type definitions](#Type-Definitions). 
+Query for customized data using the [GraphQl Playground](http://localhost:3000/graphql).
+As with the REST API there are four different types to query (see the different [type definitions](#Type-Definitions).
 
 If no arguments are passed during the query, all the relevant data of that type will return. The provided [queries](#Queries) show the possible arguments that can be passed to narrow down your search.
 
@@ -568,7 +568,7 @@ The response might look something like this:
 
 This code shows how to query the graphql api  with a POST request. This query will return an array of all events with the properties id, name and location.
 
-```      
+```
 fetch('http://localhost:3001/graphql', {
 	method: 'POST',
 	headers: {
@@ -595,7 +595,7 @@ fetch('http://localhost:3001/graphql', {
 
 This more complex request shows how you can do nested requests and only receive back the specific properties that you are searching for.
 
-```      
+```
 fetch('http://localhost:3001/graphql', {
 	method: 'POST',
 	headers: {
@@ -617,7 +617,7 @@ fetch('http://localhost:3001/graphql', {
 				}
 				event {
 					id
-					name 
+					name
 					location
         }
         division {
@@ -681,7 +681,7 @@ The result of the example above would be:
 
 * Mandy Nijssen - [Github](https://github.com/manij89)
 
-  
+
 
 
 
