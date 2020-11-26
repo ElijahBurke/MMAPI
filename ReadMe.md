@@ -1,4 +1,6 @@
-# `MMAPI: One Stop For All Your UFC Data`
+<img src="/Users/malkeeszon/Documents/Codeworks/legacy-project/Screenshot 2020-11-25 at 11.48.11.png" alt="Screenshot 2020-11-25 at 11.48.11" style="zoom:60%;" />
+
+​															**MMAPI: One Stop For All Your UFC Data**
 
 Use our API to retrieve stats from any UFC event you wish. Use traditional REST queries to get general data or fully customise your requests using the GraphQL playground.
 
@@ -321,7 +323,7 @@ If no arguments are passed during the query, all the relevant data of that type 
 ```
 
 
-   
+
 ## REST Examples
 
 ### Get All Fights
