@@ -40,7 +40,7 @@ Possible endpoints are:
 ## GraphQl API
 
 Query for customized data using the [GraphQl Playground](http://localhost:3000/graphql). 
-As with the REST API there are four different types to query (see the different [type definitions](#Type Definitions). 
+As with the REST API there are four different types to query (see the different [type definitions](#Type-Definitions). 
 
 If no arguments are passed during the query, all the relevant data of that type will return. The provided [queries](#Queries) show the possible arguments that can be passed to narrow down your search.
 
