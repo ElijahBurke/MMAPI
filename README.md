@@ -56,3 +56,10 @@ It's as simple as that! Our backend server is completely hosted, meaning you now
 * [GraphQL](https://graphql.org/)
 * [Apollo Server](https://www.apollographql.com/)
 * [Cheerio](https://cheerio.js.org/)
+
+## Contributors
+
+* Elijah Burke - [GitHub](https://github.com/ElijahBurke) - [LinkedIn](https://www.linkedin.com/in/elijahburke/)
+* Rafał Witczak  - [GitHub](https://github.com/rafwit) - [LinkedIn](https://www.linkedin.com/in/rafalwitczak/)
+* Mandy Nijssen - [GitHub](https://github.com/manij89) - [LinkedIn](https://www.linkedin.com/in/mandy-nijssen-9784771bb/)
+
