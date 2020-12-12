@@ -1,7 +1,8 @@
 # MMAPI
 
 <p align="center">
-  <img src="images/mmapi-logo.png />
+  <img src="images/mmapi-logo.png" />
+ </p>
 
 MMAPI is the one stop API for all of your UFC data needs. The UFC is the worlds largest Mixed Martial Arts promotion company, having hosted over 550 events and over 5000 fights.
 
@@ -9,6 +10,22 @@ The MMAPI holds data for every single one of these, as well as every fighter who
 
 
 ## Screenshots
+
+<p align="center">
+  <img src="images/screenshot-home.png" />
+ </p>
+            
+<p align="center">
+  <img src="images/screenshot-rest.png" />
+</p>
+            
+<p align="center">
+  <img src="images/screenshot-graohql-1.png" />
+</p>
+            
+<p align="center">
+  <img src="images/screenshot-graohql-2.png" />
+</p>
 
 
 ## Getting Started
