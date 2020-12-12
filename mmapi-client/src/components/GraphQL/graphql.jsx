@@ -22,7 +22,6 @@ function GraphQL () {
         if (data.data) {
           let str = '';
           const keys = Object.keys(data.data);
-          console.log(data.data);
           keys.forEach((key, i) => {
             if (i === 0) str += '[\n';
             str += `{ ${key}: { \n`;

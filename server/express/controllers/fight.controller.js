@@ -15,9 +15,7 @@ const getFights = async (req, res) => {
       res.send('Error: data not found');
     }
   } catch (err) {
-    res.status(500);
-    res.send('Error: Something went wrong');
-    console.error(err);
+    res.status(405).send(err);
   }
 };
 
@@ -37,9 +35,7 @@ const getFightById = async (req, res) => {
       res.send('Error: data not found');
     }
   } catch (err) {
-    res.status(500);
-    res.send('Error: Something went wrong');
-    console.error(err);
+    res.status(405).send(err);
   }
 };
 

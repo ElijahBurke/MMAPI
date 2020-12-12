@@ -11,9 +11,7 @@ const getEvents = async (req, res) => {
       res.send('Error: data not found');
     }
   } catch (err) {
-    res.status(500);
-    res.send('Something went wrong');
-    console.error(err);
+    res.status(405).send(err);
   }
 };
 
@@ -35,9 +33,7 @@ const getEventsById = async (req, res) => {
       res.send('Error: data not found');
     }
   } catch (err) {
-    res.status(500);
-    res.send('Something went wrong');
-    console.error(err);
+    res.status(405).send(err);
   }
 };
 
