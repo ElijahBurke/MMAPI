@@ -29,7 +29,8 @@ function Hero ({ stats, isFetching }) {
             </div>
             <div className="container_data_area">
               {isFetching ? <Loader type="Audio" color="#292835" height={100} width={400} />
-                : Object.keys(stats).map((key) => <DataItem dataName={key} data={stats[key]} />)}
+                : Object.keys(stats)
+                  .map((key) => <DataItem key={key} dataName={key} data={stats[key]} />)}
             </div>
           </div>
         </div>

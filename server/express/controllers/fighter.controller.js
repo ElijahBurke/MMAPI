@@ -3,8 +3,13 @@ const models = require('../models');
 const getFighters = async (req, res) => {
   try {
     const result = await models.fighters.findAll();
-    res.status = 200;
-    res.send(result);
+    if (result) {
+      res.status(200);
+      res.send(result);
+    } else {
+      res.status(404);
+      res.send('Error: data not found');
+    }
   } catch (err) {
     res.status(405).send(err);
   }
@@ -24,8 +29,13 @@ const getFighter = async (req, res) => {
         as: 'potn',
       }],
     });
-    res.status = 200;
-    res.send(result);
+    if (result) {
+      res.status(200);
+      res.send(result);
+    } else {
+      res.status(404);
+      res.send('Error: data not found');
+    }
   } catch (err) {
     res.status(405).send(err);
   }

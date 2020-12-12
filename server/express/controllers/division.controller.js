@@ -3,8 +3,13 @@ const models = require('../models');
 const getDivisions = async (req, res) => {
   try {
     const result = await models.divisions.findAll();
-    res.status = 200;
-    res.send(result);
+    if (result) {
+      res.status(200);
+      res.send(result);
+    } else {
+      res.status(404);
+      res.send('Error: data not found');
+    }
   } catch (err) {
     res.status(405).send(err);
   }
@@ -20,8 +25,13 @@ const getDivision = async (req, res) => {
         as: 'fighters',
       }],
     });
-    res.status = 200;
-    res.send(result);
+    if (result) {
+      res.status(200);
+      res.send(result);
+    } else {
+      res.status(404);
+      res.send('Error: data not found');
+    }
   } catch (err) {
     res.status(405).send(err);
   }

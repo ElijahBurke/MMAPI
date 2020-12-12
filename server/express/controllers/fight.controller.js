@@ -7,8 +7,13 @@ const getFights = async (req, res) => {
         model: models.fighters,
       }],
     });
-    res.status = 200;
-    res.send(result);
+    if (result) {
+      res.status(200);
+      res.send(result);
+    } else {
+      res.status(404);
+      res.send('Error: data not found');
+    }
   } catch (err) {
     res.status(405).send(err);
   }
@@ -21,8 +26,14 @@ const getFightById = async (req, res) => {
       where: { id },
       include: [models.fighters, models.events, models.divisions],
     });
-    res.status = 200;
-    res.send(result);
+
+    if (result) {
+      res.status(200);
+      res.send(result);
+    } else {
+      res.status(404);
+      res.send('Error: data not found');
+    }
   } catch (err) {
     res.status(405).send(err);
   }

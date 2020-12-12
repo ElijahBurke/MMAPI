@@ -43,6 +43,6 @@ module.exports = `
       name: String
       location: String
       date: Date
-    ): [Event]!
+      ): [Event]!
   }
   `;

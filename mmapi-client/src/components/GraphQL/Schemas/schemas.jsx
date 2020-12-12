@@ -10,7 +10,7 @@ function Schemas ({ title, schemas }) {
   return (
     <>
       <div className="schema_wrapper">
-        {Object.keys(schemas).map((key) => <Schema title={key} text={schemas[key]} />)}
+        {Object.keys(schemas).map((key) => <Schema title={key} key={key} text={schemas[key]} />)}
       </div>
     </>
   );

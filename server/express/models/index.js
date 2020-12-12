@@ -2,21 +2,38 @@
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
-const password = require('../password');
+// const password = require('../password');
+require('dotenv').config({ path: path.join(__dirname, '../../.env') });
+
+const currentDb = (process.env.NODE_ENV === 'test'
+  ? process.env.DATABASE_NAME_TEST
+  : process.env.DATABASE_NAME);
 
 const basename = path.basename(__filename);
 const db = {};
 
-const sequelize = new Sequelize('mmapi', 'postgres', password, {
-  host: 'localhost',
-  dialect: 'postgres',
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000,
-  },
-});
+const sequelize = new Sequelize(process.env.DATABASE_NAME_TEST, process.env.DATABASE_USER,
+  process.env.DATABASE_PASSWORD, {
+    host: 'localhost',
+    port: 5432,
+    dialect: 'postgres',
+    logging: false,
+    pool: {
+      max: 5,
+      min: 0,
+      acquire: 30000,
+      idle: 10000,
+    },
+  });
+
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch((err) => {
+    console.error('Unable to connect to the database:', err);
+  });
 
 fs
   .readdirSync(__dirname)

@@ -1,2 +1,6 @@
-password.js
-/node_modules
+.env
+node_modules
+server/node_modules
+server/package-lock.json
+.vscode
+.DS_Store

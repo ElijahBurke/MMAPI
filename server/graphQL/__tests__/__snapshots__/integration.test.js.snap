@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Queries Gets all divisions 1`] = `
+Object {
+  "divisions": Array [
+    Object {
+      "division_name": "heavy weights",
+      "id": 1,
+      "max_weight": 300,
+    },
+    Object {
+      "division_name": "light weights",
+      "id": 2,
+      "max_weight": 200,
+    },
+  ],
+}
+`;
+
+exports[`Queries Gets all events 1`] = `
+Object {
+  "events": Array [
+    Object {
+      "fights": Array [],
+      "id": 1,
+      "location": "Barcelona",
+      "name": "world championship",
+    },
+  ],
+}
+`;
+
+exports[`Queries Gets all fighters 1`] = `
+Object {
+  "fighters": Array [
+    Object {
+      "dob": "spring 2000",
+      "id": 1,
+      "name": "Rafal",
+      "wins": "always",
+    },
+    Object {
+      "dob": "yesterday",
+      "id": 2,
+      "name": "Mandy",
+      "wins": "more always",
+    },
+  ],
+}
+`;
+
+exports[`Queries Gets all fights 1`] = `
+Object {
+  "fights": Array [
+    Object {
+      "id": 1,
+      "method": "fighting",
+      "winner": "red",
+    },
+    Object {
+      "id": 2,
+      "method": "screaming",
+      "winner": "blue",
+    },
+  ],
+}
+`;
