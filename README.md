@@ -4,7 +4,7 @@
   <img src="images/mmapi-logo.png" />
  </p>
 
-MMAPI is the one stop API for all of your UFC data needs. The UFC is the worlds largest Mixed Martial Arts promotion company, having hosted over 550 events and over 5000 fights.
+MMAPI is the one stop API for all of your UFC data needs. The UFC is the worlds largest Mixed Martial Arts promotion company, having hosted 540 events and over 5000 fights.
 
 The MMAPI holds data for every single one of these, as well as every fighter who has ever participated in the sport. Query our database using either traditional REST routes, or fully customise your queries using our GraphQL warpper. If you're not sure how to create a GraphQL query, don't worry, we have you covered. Use our GraphQL playground on our front end to design your exact query and preview the resposne you will get.
 
