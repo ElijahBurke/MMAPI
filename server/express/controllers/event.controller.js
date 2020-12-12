@@ -6,7 +6,7 @@ const getEvents = async (req, res) => {
     res.status = 200;
     res.send(result);
   } catch (err) {
-    console.error(err);
+    res.status(405).send(err);
   }
 };
 
@@ -23,7 +23,7 @@ const getEventsById = async (req, res) => {
     res.status = 200;
     res.send(result);
   } catch (err) {
-    console.error(err);
+    res.status(405).send(err);
   }
 };
 
