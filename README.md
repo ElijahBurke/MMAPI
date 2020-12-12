@@ -1,5 +1,7 @@
 # MMAPI
 
+<p align="center">
+  <img src="images/mmapi-logo.png />
 
 MMAPI is the one stop API for all of your UFC data needs. The UFC is the worlds largest Mixed Martial Arts promotion company, having hosted over 550 events and over 5000 fights.
 
@@ -17,8 +19,7 @@ The MMAPI holds data for every single one of these, as well as every fighter who
  git clone https://github.com/ElijahBurke/MMAPI
  cd MMAPI/mmapi-client
 ```
-2. 
-Install the required dependencies. 
+2. Install the required dependencies. 
 ```bash
   npm i
  ```
@@ -38,4 +39,3 @@ It's as simple as that! Our backend server is completely hosted, meaning you now
 * [GraphQL](https://graphql.org/)
 * [Apollo Server](https://www.apollographql.com/)
 * [Cheerio](https://cheerio.js.org/)
-* 
