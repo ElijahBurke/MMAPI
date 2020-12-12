@@ -20,11 +20,11 @@ The MMAPI holds data for every single one of these, as well as every fighter who
 </p>
             
 <p align="center">
-  <img src="images/screenshot-graohql-1.png" />
+  <img src="images/screenshot-graphql-1.png" />
 </p>
             
 <p align="center">
-  <img src="images/screenshot-graohql-2.png" />
+  <img src="images/screenshot-graphql-2.png" />
 </p>
 
 
