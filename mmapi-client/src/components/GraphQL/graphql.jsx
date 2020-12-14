@@ -4,6 +4,7 @@
 /* eslint-disable space-before-function-paren */
 import React, { useState } from 'react';
 import './graphql.css';
+import ReactJson from 'react-json-view';
 import { graphQlQueryPlayground } from '../../api-service';
 import Editor from '../Editor/editor';
 import schemas from './schemas';
@@ -11,48 +12,35 @@ import Schemas from './Schemas/schemas';
 
 function GraphQL () {
   const [query, setQuery] = useState('// Start writing your query here');
-  const [dataDisplay, setDataDisplay] = useState('// See your response here...');
+  const [dataDisplay, setDataDisplay] = useState({ message: 'hello' });
   const [typesActive, setTypesActive] = useState(false);
   const [queriesActive, setQueriesActive] = useState(false);
 
   const handleSubmit = () => {
     graphQlQueryPlayground(query)
       .then((data) => {
-        if (data.errors) setDataDisplay(`Error: ${data.errors[0].message}`);
-        if (data.data) {
-          let str = '';
-          const keys = Object.keys(data.data);
-          keys.forEach((key, i) => {
-            if (i === 0) str += '[\n';
-            str += `{ ${key}: { \n`;
-            str += data.data[key].reduce((acc, obj) => {
-              let newStr = '';
-              const objKeys = Object.keys(obj);
-              objKeys.forEach((objKey, j) => {
-                if (j === 0) newStr += '{\n';
-                newStr += `  ${objKey}: ${obj[objKey]},\n`;
-                if (j === objKeys.length - 1) newStr += '},\n';
-              });
-              return acc + newStr;
-            }, '').trim();
-            str += '},\n';
-            if (i === keys.length - 1) str += ']';
-          });
-          setDataDisplay(str);
-        }
-      })
-      .then(() => setQuery((query) => `// Here is your request!
+        if (data.errors) setDataDisplay({ Error: `${data.errors[0].message}` });
+        else {
+          setDataDisplay(data);
+          setQuery((query) => {
+            const newReg = new RegExp(/\n/, 'gi');
+            const anotherReg = new RegExp(/ +/, 'gi');
+            const newQuery = query.trim().replace(newReg, '').replace(anotherReg, ' ');
+            return `// Here is your request!
       fetch('http://localhost:3001/graphql', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
-        body: JSON.stringify({query: "${query}"})
+        body: JSON.stringify({query: "${newQuery}"})
       })
         .then(r => r.json())
         .then(data => console.log('data returned:', data));
-      `));
+      `;
+          });
+        }
+      });
   };
 
   const handleChange = (value) => {
@@ -76,11 +64,7 @@ function GraphQL () {
         </div>
         <div className="playground_response">
           <div className="playground_response_container">
-            <pre>
-              <code>
-                {dataDisplay}
-              </code>
-            </pre>
+            <ReactJson src={dataDisplay} />
           </div>
         </div>
       </div>

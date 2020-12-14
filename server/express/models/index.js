@@ -2,12 +2,11 @@
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
-const password = require('../password');
 
 const basename = path.basename(__filename);
 const db = {};
 
-const sequelize = new Sequelize('mmapi', 'postgres', password, {
+const sequelize = new Sequelize('mmapi', 'postgres', process.env.DB_PASSWORD, {
   host: 'localhost',
   dialect: 'postgres',
   pool: {
