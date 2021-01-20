@@ -6,16 +6,7 @@ const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const db = {};
 
-const sequelize = new Sequelize('mmapi', 'postgres', process.env.DB_PASSWORD, {
-  host: 'localhost',
-  dialect: 'postgres',
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000,
-  },
-});
+const sequelize = new Sequelize(process.env.DB_STRING);
 
 fs
   .readdirSync(__dirname)
