@@ -5,19 +5,19 @@
 import React, { useState } from 'react';
 import './graphql.css';
 import ReactJson from 'react-json-view';
-import { graphQlQueryPlayground } from '../../api-service';
+import apiService from '../../api-service';
 import Editor from '../Editor/editor';
 import schemas from './schemas';
 import Schemas from './Schemas/schemas';
 
 function GraphQL () {
   const [query, setQuery] = useState('// Start writing your query here');
-  const [dataDisplay, setDataDisplay] = useState({ message: 'hello' });
+  const [dataDisplay, setDataDisplay] = useState({});
   const [typesActive, setTypesActive] = useState(false);
   const [queriesActive, setQueriesActive] = useState(false);
 
   const handleSubmit = () => {
-    graphQlQueryPlayground(query)
+    apiService.graphQlQueryPlayground(query)
       .then((data) => {
         if (data.errors) setDataDisplay({ Error: `${data.errors[0].message}` });
         else {

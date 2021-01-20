@@ -3,7 +3,7 @@ const models = require('../models');
 const getEvents = async (req, res) => {
   try {
     const result = await models.events.findAll({});
-    res.status = 200;
+    res.status(200);
     res.send(result);
   } catch (err) {
     res.status(405).send(err);

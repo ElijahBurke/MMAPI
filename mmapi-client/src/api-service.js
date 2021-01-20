@@ -9,9 +9,9 @@ const graphqlQuery = (query) => fetch(`${URL}graphql`, {
 })
   .then((resp) => resp.json());
 
-exports.graphQlQueryPlayground = (query) => graphqlQuery(query);
+const graphQlQueryPlayground = (query) => graphqlQuery(query);
 
-exports.getStartStats = () => {
+const getStartStats = () => {
   const query = `
     {
       events {
@@ -47,4 +47,9 @@ exports.getStartStats = () => {
         'Total Time': totalTime,
       };
     });
+};
+
+export default {
+  graphQlQueryPlayground,
+  getStartStats,
 };
