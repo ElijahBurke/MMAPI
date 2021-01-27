@@ -18,19 +18,19 @@ This app is hosted live on netlify, with the db being hosted as part of a digita
 ## Screenshots
 
 <p align="center">
-  <img src="images/screenshot-home.png" />
+  <img src="images/mmapi-home.png" />
  </p>
             
 <p align="center">
-  <img src="images/screenshot-rest.png" />
+  <img src="images/mmapi-rest.png" />
 </p>
             
 <p align="center">
-  <img src="images/screenshot-graphql-1.png" />
+  <img src="images/mmapi-gql1.png" />
 </p>
             
 <p align="center">
-  <img src="images/screenshot-graphql-2.png" />
+  <img src="images/mmapi-gql2.png" />
 </p>
 
 
